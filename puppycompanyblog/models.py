@@ -41,7 +41,7 @@ class BlogPost(db.Model):
   id = db.Column(db.Integer,primary_key=True)
   user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable=False)
 
-  date = db.Column(db.DateTime,nullable=False,default=datetime.utcnow())
+  date = db.Column(db.DateTime,nullable=False,default=datetime.datetime.now())
 
   title = db.Column(db.String(140),nullable=False)
 

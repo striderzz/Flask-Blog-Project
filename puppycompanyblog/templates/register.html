@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Register</h1>
+      <br>
+      <form method="post">
+        {{form.hidden_tag()}}
+        {{form.email.label}}: {{form.email}}<br><br>
+        {{form.username.label}}: {{form.username}}<br><br>
+        {{form.password.label}}: {{form.password}}<br><br>
+        {{form.pass_confirm.label}}: {{form.pass_confirm}}<br><br>
+        {{form.submit()}}
+      </form>
+    
+      
+    </div>
+  </div>
+</div>
+{% endblock %}
