@@ -17,7 +17,8 @@
     <li class="nav-link">
       <a href="{{url_for('core.info')}}">About</a>
     </li>
-
+    
+    {% if current_user.is_authenticated %}
     <li class="nav-link">
       <a href="{{url_for('users.logout')}}">Log Out</a>
     </li>
@@ -29,7 +30,7 @@
     <li class="nav-link">
       <a href="#">Create Post</a>
     </li>
-
+    {% else %}
     <li class="nav-link">
       <a href="{{url_for('users.login')}}">Log In</a>
     </li>
@@ -37,8 +38,23 @@
     <li class="nav-link">
       <a href="{{url_for('users.register')}}">Register</a>
     </li>
+    {% endif %}
 
   </ul>
+ 
+  {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="alert alert-info">
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+ 
+  
+    
   <div class="container">
     {% block content %}
     {% endblock %}

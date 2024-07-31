@@ -5,6 +5,17 @@
     <div class="container-fluid py-5">
       <h1 class="display-5 fw-bold">Register</h1>
       <br>
+      {% if form.errors %}
+      <div class="alert alert-danger">
+          <ul>
+              {% for field, errors in form.errors.items() %}
+                  {% for error in errors %}
+                      <li>{{ error }}</li>
+                  {% endfor %}
+              {% endfor %}
+          </ul>
+      </div>
+      {% endif %}
       <form method="post">
         {{form.hidden_tag()}}
         {{form.email.label}}: {{form.email}}<br><br>
