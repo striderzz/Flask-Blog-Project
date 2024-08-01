@@ -3,7 +3,9 @@
 <div class="container py-5">
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Puppy Company Blog</h1>
+      <h2 class="display-5 fw-bold">Company Blog Site</h2>
+      <br>
+      <hr>
       <div class="container">
         {% for post in blog_posts.items %}
           <div class="card">
@@ -14,6 +16,7 @@
               <a class="btn btn-primary" href="{{ url_for('blog_posts.blog_post',blog_post_id=post.id)}}">Read Blog Post</a>
             </div>
           </div>
+          <br>
         {% endfor %}
       </div>
     </div>
